@@ -1,9 +1,12 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:liveasy/constants/color.dart';
 import 'package:liveasy/controller/postLoadVariablesController.dart';
+import 'package:liveasy/functions/trasnporterApis/runTransporterApiPost.dart';
 import 'package:liveasy/translations/l10n.dart';
+import  'package:liveasy/screens/languageSelectionScreen.dart';
 
 //In provider data class variables that will be required across different screens are declared . These variables are updated by defining respective function for them.
 //Right now variable declaration and function definition are writing without any specific order but later on change this , there are two options
@@ -617,8 +620,14 @@ class ProviderData extends ChangeNotifier {
 
   void setLocale(Locale locale) {
     if (!L10n.all.contains(locale)) return;
-
-    _locale = locale;
+    print("==== provider lang  ${tidstorage.read('lang')}");
+    String l = tidstorage.read('lang');
+    //print("+++++++++++provider+++++++++++++++");
+    //FirebaseAuth.instance.currentUser!.updateDisplayName(tidstorage.read('lang'));
+    // print("---==== provider firebase: ${FirebaseAuth.instance.currentUser!.displayName});
+    // //_locale = Locale(FirebaseAuth.instance.currentUser!.displayName!);
+    print(l);
+    _locale = Locale(l);
     notifyListeners();
   }
 

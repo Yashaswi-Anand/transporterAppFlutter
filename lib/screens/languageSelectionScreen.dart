@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:liveasy/constants/color.dart';
 import 'package:liveasy/constants/fontSize.dart';
 import 'package:liveasy/constants/fontWeights.dart';
@@ -23,12 +24,26 @@ class LanguageSelectionScreen extends StatefulWidget {
   _LanguageSelectionScreenState createState() =>
       _LanguageSelectionScreenState();
 }
-
+//GetStorage localeStorage = GetStorage('LocaleStorage');
 class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
   String? transporterId;
   bool _nextScreen = false;
   TransporterIdController transporterIdController =
   Get.put(TransporterIdController(), permanent: true);
+
+
+
+  String text = "en";
+
+  void _setText(String s) {
+    setState(() {
+      text = s;
+      tidstorage.write('lang',text);
+      print("====setText------$s and  ${tidstorage.read('lang')}");
+    });
+  }
+
+
   @override
   void initState() {
     super.initState();
@@ -137,6 +152,12 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
+                                /*localeStorage.write('lang',Locale('en') );
+                                print("-------------------------------------");
+                                print(localeStorage.read('lang'));*/
+                                //print(findSystemLocale());
+                                print("-------------english btn-----------------");
+                                _setText("en");
                                 selectLanguageItem(context, LanguageItem.English);
                                 provider.setLocale(Locale('en'));
                               },
@@ -177,6 +198,11 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
+                                  /*localeStorage.write('lang',Locale('hi') );
+                                  print("=============================");
+                                  print(localeStorage.read('lang'));*/
+                                  print("===========hindi btn==========");
+                                  _setText("hi");
                                   selectLanguageItem(context, LanguageItem.Hindi);
                                   provider.setLocale(Locale('hi'));
                               },
@@ -218,8 +244,8 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
                       ),
                       _nextScreen?
                       GetStartedButton(onTapNext: this.onTapNext,) : GetStartedButton(onTapNext: (){
-                      },)
-
+                      },),
+                      Text(tidstorage.read('lang').toString()),
                     ],
                   ),
                 ),

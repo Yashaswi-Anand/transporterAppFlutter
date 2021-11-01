@@ -6,6 +6,7 @@ import 'package:liveasy/constants/color.dart';
 import 'package:liveasy/providerClass/providerData.dart';
 import 'package:get/get.dart';
 import 'package:liveasy/screens/errorScreen.dart';
+import 'package:liveasy/screens/languageSelectionScreen.dart';
 import 'package:liveasy/screens/noInternetScreen.dart';
 import 'package:liveasy/screens/spashScreenToGetTransporterData.dart';
 import 'package:liveasy/translations/l10n.dart';
@@ -20,6 +21,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:connectivity/connectivity.dart';
+
+import 'functions/trasnporterApis/runTransporterApiPost.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -96,7 +99,16 @@ class _MyAppState extends State<MyApp> {
                       ],
                       home: SplashScreen(),
                     );
-                  } else {
+                  } else{
+                    /*FirebaseAuth.instance.currentUser!.updateDisplayName(tidstorage.read('lang'));
+                    print("===========main file=====------- ${provider.locale}");
+                    print(Locale("en"));
+                    String lg = FirebaseAuth.instance.currentUser!.displayName!;
+                    print(lg);*/
+                    //String bhasha = provider.locale == null ?
+                      //          FirebaseAuth.instance.currentUser!.displayName.toString() : provider.locale.toString();
+                    //print("bhash :$bhasha");
+
                     return GetMaterialApp(
                       builder: EasyLoading.init(),
                       theme: ThemeData(
@@ -104,7 +116,7 @@ class _MyAppState extends State<MyApp> {
                           appBarTheme: AppBarTheme(
                               color: statusBarColor,
                               iconTheme: IconThemeData(color: grey))),
-                      locale: provider.locale,
+                      locale: provider.locale,//Locale(lg),
                       supportedLocales: L10n.all,
                       localizationsDelegates: [
                         AppLocalizations.delegate,
