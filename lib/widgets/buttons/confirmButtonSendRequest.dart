@@ -119,7 +119,7 @@ class _ConfirmButtonSendRequestState extends State<ConfirmButtonSendRequest> {
         );
         bookResponse = await postBookingApi(
           widget.biddingModel!.loadId,
-          widget.biddingModel!.currentBid,
+          widget.biddingModel!.transporterBid,
           widget.biddingModel!.unitValue,
           widget.truckId,
           widget.postLoadId,

@@ -60,7 +60,7 @@ class BiddingsCardTransporterSide extends StatelessWidget {
                     biddingModel: biddingModel,
                     loadId: biddingModel.loadId,
                     bidId: biddingModel.bidId,
-                    rate: biddingModel.currentBid,
+                    rate: biddingModel.transporterBid,
                     unitValue: biddingModel.unitValue,
                     companyName: biddingModel.loadPosterCompanyName,
                     biddingDate: biddingModel.biddingDate,
@@ -146,7 +146,7 @@ class BiddingsCardTransporterSide extends StatelessWidget {
                           label: 'currentBidding'.tr,
                           // AppLocalizations.of(context)!.currentBidding,
                           value:
-                              'Rs.${biddingModel.currentBid}/${biddingModel.unitValue}'),
+                              'Rs.${biddingModel.transporterBid}/${biddingModel.unitValue}'),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: space_2),
                         child: Row(
