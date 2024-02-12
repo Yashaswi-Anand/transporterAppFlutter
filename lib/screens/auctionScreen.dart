@@ -71,6 +71,7 @@ class _AuctionScreenState extends State<AuctionScreen> {
   @override
   void dispose() {
     scrollController.dispose();
+    showDetails = false;
     super.dispose();
   }
 
