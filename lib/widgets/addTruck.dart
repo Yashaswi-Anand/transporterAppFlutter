@@ -14,10 +14,12 @@ import 'package:liveasy/functions/deviceApiCalls.dart';
 import 'package:liveasy/functions/driverApiCalls.dart';
 import 'package:liveasy/functions/truckApis/truckApiCalls.dart';
 import 'package:liveasy/models/loadDetailsScreenModel.dart';
+import 'package:liveasy/models/onGoingCardModel.dart';
 import 'package:liveasy/providerClass/providerData.dart';
 import 'package:liveasy/responsive.dart';
 import 'package:liveasy/screens/TruckScreens/AddNewTruck/truckDescriptionScreen.dart';
 import 'package:liveasy/screens/myLoadPages/selectTruckScreen.dart';
+import 'package:liveasy/screens/updateTruckScreen.dart';
 import 'package:liveasy/widgets/Header.dart';
 import 'package:liveasy/widgets/addTruckSubtitleText.dart';
 import 'package:liveasy/widgets/alertDialog/sameTruckAlertDialogBox.dart';
@@ -26,17 +28,20 @@ import 'package:liveasy/widgets/loadingWidget.dart';
 import 'package:provider/provider.dart';
 
 //TODO: loading widget while post executes
-class AddNewTruck extends StatefulWidget {
+class AddTruck extends StatefulWidget {
   late String fromScreen;
-  LoadDetailsScreenModel? loadDetailsScreenModel;
+  OngoingCardModel? loadAllDataModel;
 
-  AddNewTruck(this.fromScreen, this.loadDetailsScreenModel);
+  AddTruck(
+    this.fromScreen,
+    this.loadAllDataModel,
+  );
 
   @override
   _AddNewTruckState createState() => _AddNewTruckState();
 }
 
-class _AddNewTruckState extends State<AddNewTruck> {
+class _AddNewTruckState extends State<AddTruck> {
   final _formKey = GlobalKey<FormState>();
 
   TextEditingController _controller = TextEditingController();
@@ -200,9 +205,23 @@ class _AddNewTruckState extends State<AddNewTruck> {
                                                         visibleWidget:
                                                             SelectTruckScreen(
                                                           loadDetailsScreenModel:
-                                                              widget
-                                                                  .loadDetailsScreenModel!,
+                                                              LoadDetailsScreenModel(),
                                                           directBooking: false,
+                                                        ))));
+                                      } else if (widget.fromScreen ==
+                                          "updateTruck") {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DashboardScreen(
+                                                        selectedIndex:
+                                                            screens.indexOf(
+                                                                ordersScreen),
+                                                        index: 1000,
+                                                        visibleWidget:
+                                                            UpdateTruckScreen(
+                                                          loadAllDataModel: widget
+                                                              .loadAllDataModel!,
                                                         ))));
                                       }
                                     } else {
