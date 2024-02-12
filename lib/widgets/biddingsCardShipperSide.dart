@@ -22,7 +22,7 @@ class BiddingsCardShipperSide extends StatelessWidget {
   final String? bidId;
   final String? loadingPointCity;
   final String? unloadingPointCity;
-  final String? currentBid;
+  final String? transporterBid;
   final String? previousBid;
   String? unitValue;
   final String? companyName;
@@ -43,7 +43,7 @@ class BiddingsCardShipperSide extends StatelessWidget {
     required this.unloadingPointCity,
     required this.biddingDate,
     required this.unitValue,
-    required this.currentBid,
+    required this.transporterBid,
     required this.previousBid,
     required this.companyName,
     required this.transporterPhoneNum,
@@ -76,7 +76,7 @@ class BiddingsCardShipperSide extends StatelessWidget {
               Get.to(() => BiddingDetails(
                     loadId: loadId,
                     bidId: bidId,
-                    rate: currentBid,
+                    rate: transporterBid,
                     unitValue: unitValue,
                     companyName: companyName,
                     biddingDate: biddingDate,
@@ -152,8 +152,8 @@ class BiddingsCardShipperSide extends StatelessWidget {
                               value: 'Rs.$previousBid/$unitValue')
                           : Container(),
                       NewRowTemplate(
-                        label: 'Current Bidding',
-                        value: 'Rs.$currentBid/$unitValue',
+                        label: 'Transporter Bidding',
+                        value: 'Rs.$transporterBid/$unitValue',
                         width: 102,
                       ),
                       Container(

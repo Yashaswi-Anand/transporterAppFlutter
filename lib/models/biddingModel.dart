@@ -1,7 +1,7 @@
 class BiddingModel{
   String? bidId;
   String? transporterId;
-  String? currentBid;
+  String? transporterBid;
   String? previousBid;
   String? unitValue;
   String? loadId;
@@ -25,7 +25,7 @@ class BiddingModel{
         this.loadId,
         this.transporterId,
         this.unitValue,
-        this.currentBid,
+        this.transporterBid,
         this.previousBid,
         this.biddingDate,
         this.bidId,

@@ -20,7 +20,7 @@ Future<List<BiddingModel>> getBidsFromBidApi() async {
     biddingModel.bidId = json["bidId"];
     biddingModel.transporterId = json["transporterId"];
     biddingModel.loadId = json["loadId"];
-    biddingModel.currentBid = json["currentBid"].toString();
+    biddingModel.transporterBid = json["transporterBid"].toString();
     biddingModel.previousBid = json['previousBid'].toString();
     biddingModel.unitValue = json["unitValue"];
     biddingModel.truckIdList = json["truckId"];

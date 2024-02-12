@@ -21,8 +21,8 @@ class BiddingScreens extends StatefulWidget {
 
   BiddingScreens(
       {required this.loadId,
-        required this.loadingPointCity,
-        required this.unloadingPointCity});
+      required this.loadingPointCity,
+      required this.unloadingPointCity});
 
   @override
   _BiddingScreensState createState() => _BiddingScreensState();
@@ -56,9 +56,8 @@ class _BiddingScreensState extends State<BiddingScreens> {
 
       biddingModel.bidId = json['bidId'] != null ? json['bidId'] : 'Na';
       biddingModel.transporterId =
-      json['transporterId'] != null ? json['transporterId'] : 'Na';
-      biddingModel.currentBid =
-      json['currentBid'] == null ? 'NA' : json['currentBid'].toString();
+          json['transporterId'] != null ? json['transporterId'] : 'Na';
+      biddingModel.transporterBid = json['transporterBid'] == null ? 'NA' : json['transporterBid'].toString();
       biddingModel.previousBid =
       json['previousBid'] == null ? 'NA' : json['previousBid'].toString();
       biddingModel.unitValue =
@@ -145,7 +144,7 @@ class _BiddingScreensState extends State<BiddingScreens> {
                           loadId: widget.loadId,
                           loadingPointCity: widget.loadingPointCity,
                           unloadingPointCity: widget.unloadingPointCity,
-                          currentBid: biddingModelList[index].currentBid,
+                          transporterBid: biddingModelList[index].transporterBid,
                           previousBid: biddingModelList[index].previousBid,
                           unitValue: biddingModelList[index].unitValue,
                           companyName: transporterModelList[index].companyName,
