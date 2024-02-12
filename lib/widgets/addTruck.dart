@@ -30,10 +30,14 @@ import 'package:provider/provider.dart';
 //TODO: loading widget while post executes
 class AddTruck extends StatefulWidget {
   late String fromScreen;
+  String? driverName;
+  String? driverPhoneNum;
   OngoingCardModel? loadAllDataModel;
 
   AddTruck(
     this.fromScreen,
+    this.driverName,
+    this.driverPhoneNum,
     this.loadAllDataModel,
   );
 
@@ -177,39 +181,7 @@ class _AddNewTruckState extends State<AddTruck> {
                                         loading = false;
                                       });
                                       providerData.updateResetActive(false);
-                                      if (widget.fromScreen == "myTrucks") {
-                                        Navigator.of(context).pushReplacement(
-                                            MaterialPageRoute(
-                                                builder: (context) => DashboardScreen(
-                                                    selectedIndex: screens
-                                                        .indexOf(auctionScreen),
-                                                    index: 1000,
-                                                    visibleWidget:
-                                                        TruckDescriptionScreen(
-                                                            truckId: truckId!,
-                                                            truckNumber:
-                                                                _controller
-                                                                    .text,
-                                                            truckUniqueId: random
-                                                                .toString()))));
-                                      } else if (widget.fromScreen ==
-                                          "selectTruck") {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    DashboardScreen(
-                                                        selectedIndex:
-                                                            screens.indexOf(
-                                                                auctionScreen),
-                                                        index: 1000,
-                                                        visibleWidget:
-                                                            SelectTruckScreen(
-                                                          loadDetailsScreenModel:
-                                                              LoadDetailsScreenModel(),
-                                                          directBooking: false,
-                                                        ))));
-                                      } else if (widget.fromScreen ==
-                                          "updateTruck") {
+                                      if (widget.fromScreen == "updateTruck") {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
                                                 builder: (context) =>
@@ -220,6 +192,10 @@ class _AddNewTruckState extends State<AddTruck> {
                                                         index: 1000,
                                                         visibleWidget:
                                                             UpdateTruckScreen(
+                                                          driverName:
+                                                              widget.driverName,
+                                                          driverPhoneNo: widget
+                                                              .driverPhoneNum,
                                                           loadAllDataModel: widget
                                                               .loadAllDataModel!,
                                                         ))));

@@ -189,8 +189,12 @@ class _UpdateTruckScreenState extends State<UpdateTruckScreen> {
                                               Container(
                                                 width: 540,
                                                 height: 280,
-                                                child: AddTruck("updateTruck",
-                                                    widget.loadAllDataModel),
+                                                child: AddTruck(
+                                                  "updateTruck",
+                                                  widget.driverName,
+                                                  widget.driverPhoneNo,
+                                                  widget.loadAllDataModel,
+                                                ),
                                               )
                                             ],
                                           );
@@ -199,8 +203,11 @@ class _UpdateTruckScreenState extends State<UpdateTruckScreen> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => AddTruck(
-                                              "updateTruck",
-                                              widget.loadAllDataModel),
+                                            "updateTruck",
+                                            widget.driverName,
+                                            widget.driverPhoneNo,
+                                            widget.loadAllDataModel,
+                                          ),
                                         ),
                                       );
                               },
@@ -441,7 +448,11 @@ class _UpdateTruckScreenState extends State<UpdateTruckScreen> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => AddTruck(
-                                        "updateTruck", widget.loadAllDataModel),
+                                      "updateTruck",
+                                      widget.driverName,
+                                      widget.driverPhoneNo,
+                                      widget.loadAllDataModel,
+                                    ),
                                   ),
                                 );
                               },
