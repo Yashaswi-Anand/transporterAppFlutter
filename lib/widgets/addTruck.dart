@@ -167,14 +167,12 @@ class _AddNewTruckState extends State<AddTruck> {
 
                                     final int random =
                                         new Random().nextInt(10000000 - 1) + 1;
-                                    print(random);
                                     providerData.updateTruckNumberValue(
                                         _controller.text);
                                     truckId = await postDeviceApi.PostDevice(
                                         //post truck no in device api with random uniqueid
                                         truckName: _controller.text,
                                         uniqueid: random.toString());
-                                    print("$truckId--------------------");
 
                                     if (truckId != null) {
                                       setState(() {
@@ -320,14 +318,12 @@ class _AddNewTruckState extends State<AddTruck> {
                                       final int random =
                                           new Random().nextInt(10000000 - 1) +
                                               1;
-                                      print(random);
                                       providerData.updateTruckNumberValue(
                                           _controller.text);
                                       truckId = await postDeviceApi.PostDevice(
                                           //post truck no in device api with random uniqueid
                                           truckName: _controller.text,
                                           uniqueid: random.toString());
-                                      print("$truckId--------------------");
 
                                       if (truckId != null) {
                                         setState(() {
@@ -352,7 +348,6 @@ class _AddNewTruckState extends State<AddTruck> {
                                                         directBooking: false,
                                                       )));
                                         }
-                                        // print("hii ${truckId} and ${_controller.text}");
                                       } else {
                                         setState(() {
                                           loading = false;
