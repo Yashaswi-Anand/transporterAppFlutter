@@ -29,8 +29,15 @@ import 'package:provider/provider.dart';
 class AddNewTruck extends StatefulWidget {
   late String fromScreen;
   LoadDetailsScreenModel? loadDetailsScreenModel;
+  String? driverName;
+  String? driverPhoneNo;
 
-  AddNewTruck(this.fromScreen, this.loadDetailsScreenModel);
+  AddNewTruck(
+    this.fromScreen,
+    this.loadDetailsScreenModel,
+    this.driverName,
+    this.driverPhoneNo,
+  );
 
   @override
   _AddNewTruckState createState() => _AddNewTruckState();
@@ -199,6 +206,10 @@ class _AddNewTruckState extends State<AddNewTruck> {
                                                         index: 1000,
                                                         visibleWidget:
                                                             SelectTruckScreen(
+                                                          driverName:
+                                                              widget.driverName,
+                                                          driverPhoneNo: widget
+                                                              .driverPhoneNo,
                                                           loadDetailsScreenModel:
                                                               widget
                                                                   .loadDetailsScreenModel!,
@@ -352,8 +363,13 @@ class _AddNewTruckState extends State<AddNewTruck> {
                                               MaterialPageRoute(
                                                   builder: (context) =>
                                                       SelectTruckScreen(
+                                                        driverName:
+                                                            widget.driverName,
+                                                        driverPhoneNo: widget
+                                                            .driverPhoneNo,
                                                         loadDetailsScreenModel:
-                                                            LoadDetailsScreenModel(),
+                                                            widget
+                                                                .loadDetailsScreenModel!,
                                                         directBooking: false,
                                                       )));
                                         }

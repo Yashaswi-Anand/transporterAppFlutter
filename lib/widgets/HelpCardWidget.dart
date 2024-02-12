@@ -52,7 +52,7 @@ class _HelpCardWidgetState extends State<HelpCardWidget> {
   ];
 
   var redirect_links = [
-    AddNewTruck("redirectlinks", null),
+    AddNewTruck("redirectlinks", null, null, null),
     PostLoadScreenOne(),
     SuggestedLoadScreen(),
     BuyGpsScreen(),

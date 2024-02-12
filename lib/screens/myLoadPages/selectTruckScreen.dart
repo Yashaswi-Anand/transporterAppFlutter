@@ -224,9 +224,11 @@ class _SelectTruckScreenState extends State<SelectTruckScreen> {
                                                 width: 540,
                                                 height: 280,
                                                 child: AddNewTruck(
-                                                    "selectTruck",
-                                                    widget
-                                                        .loadDetailsScreenModel),
+                                                  "selectTruck",
+                                                  widget.loadDetailsScreenModel,
+                                                  widget.driverName,
+                                                  widget.driverPhoneNo,
+                                                ),
                                               )
                                             ],
                                           );
@@ -235,8 +237,11 @@ class _SelectTruckScreenState extends State<SelectTruckScreen> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => AddNewTruck(
-                                              "selectTruck",
-                                              widget.loadDetailsScreenModel),
+                                            "selectTruck",
+                                            widget.loadDetailsScreenModel,
+                                            widget.driverName,
+                                            widget.driverPhoneNo,
+                                          ),
                                         ),
                                       );
                               },
@@ -484,8 +489,11 @@ class _SelectTruckScreenState extends State<SelectTruckScreen> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => AddNewTruck(
-                                        "selectTruck",
-                                        widget.loadDetailsScreenModel),
+                                      "selectTruck",
+                                      widget.loadDetailsScreenModel,
+                                      widget.driverName,
+                                      widget.driverPhoneNo,
+                                    ),
                                   ),
                                 );
                               },
