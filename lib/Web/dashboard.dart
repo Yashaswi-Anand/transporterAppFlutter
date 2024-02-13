@@ -10,7 +10,7 @@ import 'package:liveasy/controller/transporterIdController.dart';
 import 'package:liveasy/responsive.dart';
 import 'package:liveasy/screens/isolatedTransporterGetData.dart';
 import 'package:liveasy/screens/navigationScreen.dart';
-
+import 'package:liveasy/widgets/alertDialog/LogOutDialogue.dart';
 import 'logo.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -475,7 +475,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ewayBillSelectedTabGradientColor = white;
               signoutSelectedTabGradientColor = bidBackground;
               _selectedIndex = 4;
-              _index = 4;
+              //here we have call the dialog box directly instead from screen file where all the screen are control
+              //because from screen file it change the screen and cover full screen
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return LogoutDialogue();
+                  });
+              // _index = 4;
             }
           });
         },

@@ -28,8 +28,9 @@ getBidDataWithPageNo(int i) async {
     biddingModel.transporterId =
         json['transporterId'] == null ? 'NA' : json['transporterId'];
     biddingModel.loadId = json['loadId'] == null ? 'NA' : json['loadId'];
-    biddingModel.currentBid =
-        json['currentBid'] == null ? 'NA' : json['currentBid'].toString();
+    biddingModel.transporterBid = json['transporterBid'] == null
+        ? 'NA'
+        : json['transporterBid'].toString();
     biddingModel.previousBid =
         json['previousBid'] == null ? 'NA' : json['previousBid'].toString();
     biddingModel.unitValue =

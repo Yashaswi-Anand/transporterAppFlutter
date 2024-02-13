@@ -111,18 +111,7 @@ dependencies:
   calendar_date_picker2: ^0.5.3
   pdf: ^3.10.7
   file_picker: ^6.1.1
-#  In this scenario, we have opted for the pdfx plugin instead of the native PDF reader due to 
-# compatibility issues on the Android platform. While the native PDF reader functions seamlessly
-#  on the web, its performance on Android is compromised. Therefore, we've incorporated pdfx as a suitable alternative.
-# It's important to note that the pdfx plugin is still in the development phase, and users may encounter a 
-# "decodecallback" error. To address this temporary setback, we have identified a specific plugin version on
-# GitHub, serving as a workaround until a comprehensive fix is implemented. The details of this workaround 
-# can be found in the discussion related to the issue, accessible through the following link: https://github.com/ScerIO/packages.flutter/issues/298#issuecomment-1148519805.
-  pdfx:
-    git:
-      url: https://github.com/ScerIO/packages.flutter
-      ref: 4be9de9ffed5398fd7d5f44bbb07dcd3d3f1711b
-      path: packages/pdfx
+  pdfx: ^2.6.0
  
 
 dev_dependencies:
