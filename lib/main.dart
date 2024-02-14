@@ -42,11 +42,13 @@ void main() async {
           options: DefaultFirebaseOptions.currentPlatform,
         )
       : Firebase.initializeApp();
-  await dotenv.load();
+  await dotenv.load(); //load the dotenv package
   final String appId = dotenv.get('appId');
   final String apiKey = dotenv.get('apiKey');
   final String messagingSenderId = dotenv.get('messagingSenderId');
   final String projectId = dotenv.get('projectId');
+  //firebase second instance to fetch the companydetails from shipper table
+  //The key's and the necessary variables will be fetched from .env files
   await Firebase.initializeApp(
     name: 'second_instance',
     options: FirebaseOptions(
